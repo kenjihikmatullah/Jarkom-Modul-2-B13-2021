@@ -13,28 +13,29 @@ EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, d
 #### 1. EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, dan Skypie akan digunakan sebagai Web Server. Terdapat 2 Client yaitu Loguetown, dan Alabasta. Semua node terhubung pada router Foosha, sehingga dapat mengakses internet       
     
 Dibuat topologi terlebih dahulu sebagai berikut:       
-![Topologi](/screenshots/topologi.png)           
+![Topologi](https://user-images.githubusercontent.com/61305028/139605398-b66d9c34-b269-4948-a6d2-371047524e9d.PNG)
+  
 Kemudian dilakukan konfigurasi pada setiap node yang ada:       
        
 **Foosha sebagai Router**         
-![Foosha](/screenshots/network-config/foosha.png)         
+![Foosha](https://user-images.githubusercontent.com/61305028/139605408-e6454259-ac20-4397-b7a8-67365d1feb5f.PNG)
        
 **Loguetown sebagai Client**  
 ```
 apt-get update         
 apt-get install dnsutils  
 ```
-![Loguetown](/screenshots/network-config/loguetown.png)  
+![Loguetown](https://user-images.githubusercontent.com/61305028/139605416-20c03cc4-afe7-492f-903e-1291690c2c14.PNG)
 
 **Alabasta sebagai Client**  
-![Alabasta](/screenshots/network-config/alabasta.png)  
+![Alabasta](https://user-images.githubusercontent.com/61305028/139605426-7cb1f839-a909-4a6a-af3b-38d8e45dee7b.PNG)
 
 **Enieslobby Sebagai DNS Master**  
 ```
 apt-get update  
 apt-get install bind9 -y  
 ```
-![Enieslobby](/screenshots/network-config/enies-lobby.png)  
+![Enieslobby](https://user-images.githubusercontent.com/61305028/139605463-dcebf7f7-021a-46e0-b5d2-cdcf63f9ef10.PNG)
   
 **Water7 sebagai DNS Slave**  
 ```
@@ -42,10 +43,10 @@ apt-get update
 apt-get install bind9 -y       
 echo "nameserver 192.168.122.1" > /etc/resolv.conf       
 ```        
-![Water7](/screenshots/network-config/water-7.png)           
+![Water7](https://user-images.githubusercontent.com/61305028/139605486-d8953a0f-f859-4e5d-bf54-1d49f942249c.PNG)
             
 **Skypie Sebagai Webserver**           
-![Skypie](/screenshots/network-config/skypie.png)        
+![Skypie](https://user-images.githubusercontent.com/61305028/139605492-c655e641-a0c8-40a0-a988-bdbc7d98f5fe.PNG)
           
 Kemudian setiap node diaktifkan dan command `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.183.0.0/16` dijalankan pada router Foosha agar dapat terhubung ke internet.         
 
